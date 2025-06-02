@@ -99,14 +99,14 @@
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.ttf") format("truetype");
-  font-weight: 900;
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2"), url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.ttf") format("truetype");
-  font-weight: 900;
+  font-weight: 800;
   font-style: italic;
   font-display: swap;
 }
@@ -115,6 +115,29 @@ html {
 }
 html body {
   font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+}
+html body h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+html body h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+html body h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+html body .button {
+  display: inline-block;
+  margin: 1rem auto;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #000000;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
 }
 
 header {
@@ -149,20 +172,15 @@ header .navbar > a {
   padding: 2rem 0;
 }
 
-#home .background-image {
-  background: url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
+#home .hello-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
+  padding-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
   height: 550px;
   width: 100%;
   position: relative;
-}
-#home .background-image::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=app.css.map */

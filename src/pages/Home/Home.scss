@@ -1,14 +1,16 @@
 @use '../../assets/styles/abstracts' as *;
 
 #home {
-    .background-image {
-        background: url('images/DSCF8786_Istg_-scaled.jpg') 37% 100%/cover no-repeat;
+    .hello-section {
+        @include bg-image('images/DSCF8786_Istg_-scaled.jpg');
+        @include flex-center;
+        flex-direction: column;
+        gap: 2rem;
+        font-size: 2rem;
+        text-align: center;
          height: 550px;  
          width: 100%; 
          position: relative;
-
-        &::after {
-            @include dark-overlay
-        }
+         color: $white;
     }
 }
