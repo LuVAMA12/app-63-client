@@ -1,0 +1,39 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+}
+header .logo {
+  padding-top: 0.8rem;
+  display: inline-block;
+}
+header .logo img {
+  width: 15%;
+}
+header .menu-icon {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+}
+header .navbar {
+  width: 100%;
+}
+header .navbar > a {
+  display: inline-block;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+#home .background-image {
+  background: url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
+  height: 550px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=app.css.map */

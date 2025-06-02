@@ -1,0 +1,35 @@
+@use '../../assets/styles/abstracts' as *;
+
+    header {
+        width: 100%;
+        @include flex-center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+        position: relative;
+    
+    .logo {
+        padding-top: 0.8rem;
+        display: inline-block;
+        img {
+           width: 15%;
+       }
+   }
+    .menu-icon {
+      position: absolute;
+      right: 10px; 
+      top: 8px;
+      cursor: pointer;
+    }
+
+    .navbar {
+        width: 100%;
+        >a{
+            display: inline-block;
+            width: 100%;
+            padding: 2rem 0;
+        }
+    }
+    
+
+}

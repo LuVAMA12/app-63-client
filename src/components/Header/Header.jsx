@@ -1,0 +1,20 @@
+import { useState } from "react";
+import { Link } from "react-router"
+
+const Header = () => {
+    const [isOpenMenu, setIsOpenMenu] = useState(false) 
+    const toggleBurger = () => setIsOpenMenu(!isOpenMenu);
+  return (
+    <header>
+      <Link to='/' className="logo"><img src="/images/logo.png" alt="Logo Le 63 restaurant"/></Link>
+      <img className='menu-icon' src="/icons/burger-icon.svg" alt="Burger Menu - Appuyez pour ouvrir le menu" onClick={toggleBurger} />
+      {isOpenMenu &&
+        <nav className="navbar">
+            <Link to="/">Accueil</Link>
+        </nav>
+        }
+    </header>
+  )
+}
+
+export default Header
