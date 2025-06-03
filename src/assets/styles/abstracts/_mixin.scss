@@ -11,13 +11,14 @@
 }
 
 @mixin button($background-color:#ffffff,$font-color:#000000){
-  display: inline-block;
-  margin: 1rem auto;
+  display: block;
+  margin: 1rem;
   text-decoration: none;
   font-weight: 700;
   background-color: $background-color;
   color: $font-color;
   text-transform: uppercase;
   padding: 1rem 2rem;
+  max-width: 150px;
 
 }

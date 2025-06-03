@@ -1,16 +1,45 @@
 @use '../../assets/styles/abstracts' as *;
 
 #home {
-    .hello-section {
-        @include bg-image('images/DSCF8786_Istg_-scaled.jpg');
-        @include flex-center;
+    color: $white;
+    text-align: center;
+    .welcome-section {
+        background: 
+            linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #000000 89%,  #000000 100%),
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('images/DSCF8786_Istg_-scaled.jpg') 37% 100%/cover no-repeat;
+        display: flex;
         flex-direction: column;
-        gap: 2rem;
+        align-items: center;
         font-size: 2rem;
-        text-align: center;
-         height: 550px;  
-         width: 100%; 
-         position: relative;
-         color: $white;
+        height: 500px;  
+        width: 100%; 
+        position: relative;
+         .welcome-text {
+            margin: 4rem 0;
+         }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+           .grey-button {
+                @include button($dark-grey, $white)
+            }
+        }
+    }
+    .story-section {
+        background-color: $black;
+        padding:2rem 1.5rem;
+        position: relative;
+        h2{
+            position: absolute;
+            top:-55px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        p{
+            text-align: justify;
+        }
     }
 }
