@@ -116,6 +116,7 @@ html {
 html body {
   font-family: "JetBrains Mono", monospace;
   font-size: 1.4rem;
+  box-sizing: border-box;
 }
 html body h1 {
   font-weight: 700;
@@ -124,20 +125,22 @@ html body h1 {
 html body h2 {
   font-size: 1.8rem;
   font-weight: 700;
+  margin: 0;
 }
 html body h3 {
   font-size: 1.6rem;
   font-weight: 700;
 }
 html body .button {
-  display: inline-block;
-  margin: 1rem auto;
+  display: block;
+  margin: 1rem;
   text-decoration: none;
   font-weight: 700;
   background-color: #ffffff;
   color: #000000;
   text-transform: uppercase;
   padding: 1rem 2rem;
+  max-width: 150px;
 }
 
 header {
@@ -172,15 +175,52 @@ header .navbar > a {
   padding: 2rem 0;
 }
 
-#home .hello-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
-  padding-top: 2rem;
-  font-size: 2rem;
+#home {
+  color: #FFFFFF;
   text-align: center;
-  height: 550px;
+}
+#home .welcome-section {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #000000 89%, #000000 100%), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  height: 500px;
   width: 100%;
   position: relative;
+}
+#home .welcome-section .welcome-text {
+  margin: 4rem 0;
+}
+#home .welcome-section .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#home .welcome-section .buttons .grey-button {
+  display: block;
+  margin: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #2d2a27;
   color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  max-width: 150px;
+}
+#home .story-section {
+  background-color: #000000;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+#home .story-section h2 {
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#home .story-section p {
+  text-align: justify;
 }
 
 /*# sourceMappingURL=app.css.map */
