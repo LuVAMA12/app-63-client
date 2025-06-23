@@ -1,6 +1,14 @@
 @charset 'utf-8';
 @use './abstracts/' as *;
 @use 'base/global';
+
 @use '../../components/Header/Header.scss';
+@use '../../components/Footer/Footer.scss';
+@use '../../components/ReservationCard/ReservationCard.scss';
+
 @use '../../pages/Home/Home.scss';
+@use '../../pages/admin/AdminHome/AdminHome.scss';
+@use '../../pages/admin/ReservationsManager/ReservationsManager.scss';
+
+
 

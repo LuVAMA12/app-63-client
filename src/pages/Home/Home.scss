@@ -24,7 +24,7 @@
             flex-direction: column;
             gap:2rem;
            .grey-button {
-                @include button($dark-grey, $white)
+                @include square-btn($dark-grey, $white)
             }
         }
     }
@@ -42,4 +42,4 @@
             text-align: justify;
         }
     }
-}
+} 

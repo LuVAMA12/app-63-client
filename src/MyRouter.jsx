@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router';
-import App from './App.jsx';
-import NotFound from './pages/NotFound.jsx';
-import PublicLayout from './layouts/PublicLayout.jsx';
-import AdminLayout from './layouts/AdminLayout.jsx';
-import ManageReservations from './pages/admin/ManageReservations/ManageReservations.jsx';
-import Login from './pages/admin/Login/Login.jsx';
 import ProtectedRoute from '../utils/ProtectedRoute.jsx';
+import App from './App.jsx';
+import AdminLayout from './layouts/AdminLayout.jsx';
+import PublicLayout from './layouts/PublicLayout.jsx';
+import AdminHome from './pages/admin/AdminHome/AdminHome.jsx';
+import Login from './pages/admin/Login/Login.jsx';
+import ReservationsManager from './pages/admin/ReservationsManager/ReservationsManager.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 const MyRouter = () => {
     return (
@@ -22,7 +23,8 @@ const MyRouter = () => {
                     </ProtectedRoute>
                 }
             >
-                <Route path="reservations" element={<ManageReservations />} />
+                <Route path='' element={<AdminHome />} />
+                <Route path="reservations" element={<ReservationsManager />} />
             </Route>
                 <Route path='/admin/login' element={<Login/>}/>
             <Route path="*" element={<NotFound/>}/>

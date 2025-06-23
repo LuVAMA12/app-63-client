@@ -1,26 +1,41 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    main {
+        flex: 1;
+    }
+}
 html {
     font-size: 62.5%;
-    body {
-        font-family: $font-mono;
-        font-size: 1.4rem;
-        box-sizing: border-box;
-        h1 {
-            font-weight: 700;
-            font-size: 2.5rem;
-        }
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin:0;
-        }
-        h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-        .button {
-            @include button
-        }
+}
+body {
+    font-family: $font-mono;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    h1 {
+        font-weight: 700;
+        font-size: 2.5rem;
     }
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+    p{
+        margin:0;
+    }
+    .button {
+        @include square-btn;
+    }
+    .admin-main {
+        padding: 2rem;
+    }
+    
 }

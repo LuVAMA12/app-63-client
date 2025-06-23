@@ -1,0 +1,24 @@
+@use '../../assets/styles/abstracts' as *;
+
+#reservation-card {
+    background-color: $white;
+    display: flex;
+    justify-content: space-between;
+    border-radius:10px;
+    padding: 1rem;
+
+    a{
+        display: inline-block;
+        color: $black;
+    }
+    .right-info{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        .status{
+            margin-bottom: auto;
+            border-radius: 5px;
+        }
+    }
+}

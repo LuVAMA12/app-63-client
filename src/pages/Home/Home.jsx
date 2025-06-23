@@ -17,7 +17,6 @@ const Home = ()=> {
       <h2>NOTRE HISTOIRE</h2>
       <p>Le restaurant 63 est un ami ! Un ami qui aime partager l’art de bien manger. Son menu change souvent pour vivre avec son temps ! Mais la base reste la même: un bon service, une bonne ambiance et un bon coup  de fourchette. Dans ce restaurant, les gens viennent pour manger mais  surtout pour se faire plaisir avec des produits de qualité à des prix  abordables. Avec son esprit sportif et collectif, le 63 met dans votre  assiette ce qu’il a de mieux dans la boucherie…</p>
     </section>
-    <section className="new-item"></section>
     </main>
  )
 }

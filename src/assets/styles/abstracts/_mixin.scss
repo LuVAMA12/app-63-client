@@ -10,7 +10,7 @@
     url($url) 37% 100%/cover no-repeat;
 }
 
-@mixin button($background-color:#ffffff,$font-color:#000000){
+@mixin square-btn($background-color:#ffffff,$font-color:#000000){
   display: block;
   margin: 1rem;
   text-decoration: none;
@@ -21,4 +21,24 @@
   padding: 1rem 2rem;
   max-width: 150px;
 
+}
+
+@mixin round-btn($background-color:#ffffff,$font-color:#000000, $icon-url:'') {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: $background-color;
+  color: $font-color;
+  text-align:center;
+  padding: 1.5rem 2rem;
+  &::before {
+    content: '';
+    display: inline-block;
+    background: url(#{$icon-url})  no-repeat center / contain;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.3em;
+    vertical-align: -6%;
+  }
 }
