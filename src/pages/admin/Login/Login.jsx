@@ -7,7 +7,6 @@ const Login = () => {
         email: '',
         password: ''
     })
-        console.log(infoAdmin)
     return(
         <>
         <h1>Login pages</h1>

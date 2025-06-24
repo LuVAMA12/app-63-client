@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -41,4 +43,11 @@
     margin-right: 0.3em;
     vertical-align: -6%;
   }
+}
+@mixin admin-card {
+  background-color: $white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0  5px 4px 0 rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }

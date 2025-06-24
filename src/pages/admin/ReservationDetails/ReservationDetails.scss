@@ -1,0 +1,8 @@
+@use '../../../assets/styles/abstracts' as *;
+
+#reservation-details {
+    background-color: $bg-reservations;
+    .details-card{
+        @include admin-card;
+    }
+}

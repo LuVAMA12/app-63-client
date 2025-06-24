@@ -5,6 +5,7 @@ import AdminLayout from './layouts/AdminLayout.jsx';
 import PublicLayout from './layouts/PublicLayout.jsx';
 import AdminHome from './pages/admin/AdminHome/AdminHome.jsx';
 import Login from './pages/admin/Login/Login.jsx';
+import ReservationDetails from './pages/admin/ReservationDetails/ReservationDetails.jsx';
 import ReservationsManager from './pages/admin/ReservationsManager/ReservationsManager.jsx';
 import NotFound from './pages/NotFound.jsx';
 
@@ -25,6 +26,7 @@ const MyRouter = () => {
             >
                 <Route path='' element={<AdminHome />} />
                 <Route path="reservations" element={<ReservationsManager />} />
+                <Route path="reservation/:id" element={<ReservationDetails />} />
             </Route>
                 <Route path='/admin/login' element={<Login/>}/>
             <Route path="*" element={<NotFound/>}/>

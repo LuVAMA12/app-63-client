@@ -1,0 +1,8 @@
+@use '../../../assets/styles/abstracts' as *;
+
+#order-details {
+    background-color: $bg-orders;
+    .details-card{
+        @include admin-card;
+    }
+}
