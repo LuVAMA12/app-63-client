@@ -1,18 +1,21 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
+import { Outlet } from "react-router";
 import { AuthContext } from "./AuthContext.jsx";
+
+const API_URL = import.meta.env.VITE_API_URL
 
 export const OrderContext = createContext(null);
 
-export const OrderController = ({ children }) => {
+export const OrderController = () => {
     const { tokenStorage } = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
     const [orders, setOrders] = useState(null);
-
+    
     const getOrders = async () => {
         try {
         const response = await axios.get(
-            "https://app-63-server.onrender.com/api/orders",
+            `${API_URL}api/orders`,
             {
             headers: {
                 Authorization: `Bearer ${tokenStorage}`,
@@ -23,7 +26,7 @@ export const OrderController = ({ children }) => {
             setOrders(response.data);
         }
         } catch (error) {
-        console.log(error);
+         console.log(error)
         } finally {
         setLoading(false);
         }
@@ -43,7 +46,7 @@ export const OrderController = ({ children }) => {
             return response.data
         }
         } catch (error) {
-         return console.log(error);
+            console.log(error)
         } finally {
         setLoading(false);
         }
@@ -60,7 +63,7 @@ export const OrderController = ({ children }) => {
         <OrderContext.Provider
         value={{ orders, loading, getOrderById}}
         >
-        {children}
+        <Outlet/>
         </OrderContext.Provider>
     );
 };

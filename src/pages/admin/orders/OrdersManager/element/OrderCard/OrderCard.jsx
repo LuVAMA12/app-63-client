@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { OrderContext } from "../../../context/OrderContext.jsx";
+import { OrderContext } from "../../../../../../context/OrderContext";
 const OrderCard = () => {
     const navigate = useNavigate();
     const { orders, loading } = useContext(OrderContext);
+
 
     return (
         <>
@@ -12,13 +13,14 @@ const OrderCard = () => {
             <div className="loader"></div>
             </article>
         )}
-        {!orders && (
+        {(!orders || orders.length === 0) && (
             <p>Aucune commande trouvé</p>
         )}
         {!loading &&
             orders &&
+            orders.length >= 1 &&
             orders.map((order) => (
-                <article key={order.id} id="order-card" onClick={() => navigate(`/admin/order/${order.id}`)}>
+                <article key={order.id} id="order-card" onClick={() => navigate(`/admin/commandes/${order.id}`)}>
                 <div className="left-info">
                     <p>
                     <strong>{order.Table.location}</strong>

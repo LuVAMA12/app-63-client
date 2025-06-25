@@ -4,12 +4,18 @@
 
 @use '../../components/Header/Header.scss';
 @use '../../components/Footer/Footer.scss';
-@use '../../components/cards/ReservationCard/ReservationCard.scss';
+
+@use '../../pages/admin/reservations/ReservationsManager/element/ReservationCard/ReservationCard.scss';
+@use '../../pages/admin/orders/OrdersManager/element/OrderCard/OrderCard.scss';
 
 @use '../../pages/Home/Home.scss';
 @use '../../pages/admin/AdminHome/AdminHome.scss';
-@use '../../pages/admin/ReservationsManager/ReservationsManager.scss';
-@use '../../pages/admin/ReservationDetails/ReservationDetails.scss';
+
+@use '../../pages/admin/reservations/ReservationsManager/ReservationsManager.scss';
+@use '../../pages/admin/reservations/ReservationDetails/ReservationDetails.scss';
+
+@use '../../pages/admin/orders/OrdersManager/OrdersManager.scss';
+@use '../../pages/admin/orders/OrderDetails/OrderDetails.scss';
 
 
 

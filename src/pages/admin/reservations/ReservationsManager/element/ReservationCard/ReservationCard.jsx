@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { ReservationContext } from "../../../context/ReservationsContext.jsx";
+import { ReservationContext } from "../../../../../../context/ReservationsContext.jsx";
 const ReservationCard = () => {
     const navigate = useNavigate();
     const { reservations, loading } = useContext(ReservationContext);
@@ -12,13 +12,10 @@ const ReservationCard = () => {
             <div className="loader"></div>
             </article>
         )}
-        {!reservations && (
-            <p>Aucune commande trouvé</p>
-        )}
         {!loading &&
             reservations &&
             reservations.map((reservation) => (
-                <article key={reservation.id} id="reservation-card" onClick={() => navigate(`/admin/reservation/${reservation.id}`)}>
+                <article key={reservation.id} id="reservation-card" onClick={() => navigate(`/admin/reservations/${reservation.id}`)}>
                 <div className="left-info">
                     <p>
                     <strong>{reservation.Table.location}</strong>
@@ -58,6 +55,9 @@ const ReservationCard = () => {
                 </div>
                 </article>
             ))}
+            {!reservations && (
+            <p>Aucune réservation trouvé</p>
+        )}
         </>
     );
 };

@@ -1,10 +1,13 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+const API_URL = import.meta.env.VITE_API_URL
+
 
 export const AuthContext = createContext(null);
 
 export const AuthController = ({ children }) => {
+
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -29,7 +32,7 @@ export const AuthController = ({ children }) => {
         e.preventDefault();
         try {
         const response = await axios.post(
-            "https://app-63-server.onrender.com/admin/login",
+            `${API_URL}admin/login`,
             infoAdmin
         );
         if (response.status === 200) {
