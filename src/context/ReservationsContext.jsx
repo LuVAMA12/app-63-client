@@ -1,12 +1,13 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext.jsx";
 const API_URL = import.meta.env.VITE_API_URL
 
 export const ReservationContext = createContext(null);
 
 export const ReservationController = () => {
+  const navigate = useNavigate()
   const { tokenStorage } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [reservations, setReservations] = useState(null);
@@ -22,6 +23,10 @@ export const ReservationController = () => {
         setReservations(response.data);
       }
     } catch (error) {
+      if (error.response.status === 403){
+        localStorage.removeItem('token')
+        navigate('/admin/login')
+      }
       console.log(error);
     } finally {
       setLoading(false);
@@ -39,6 +44,10 @@ export const ReservationController = () => {
         return response.data;
       }
     } catch (error) {
+      if (error.response.status === 403){
+        localStorage.removeItem('token')
+        navigate('/admin/login')
+      }
       console.log(error);
     } finally {
       setLoading(false);
