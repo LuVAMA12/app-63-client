@@ -42,14 +42,6 @@ const OrderDetails = () => {
               <a href={`tel:${order.User.phone}`}>{order.User.phone}</a>
             </div>
 
-            <div className="table-info">
-              <p>
-                <strong>{order.Table.location}</strong>
-              </p>
-              <p>Table {order.Table.numberTable}</p>
-              <p>{order.numberOfPeople} couverts</p>
-            </div>
-
             <p className={`status ${order.status}`}>
               {order.status === "pending" && "en attente"}
               {order.status === "ready" && "prête"}

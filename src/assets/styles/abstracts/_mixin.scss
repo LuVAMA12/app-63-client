@@ -6,38 +6,36 @@
   align-items: center;
 }
 
-@mixin bg-image ($url){
-  background: 
+@mixin bg-image($url) {
+  background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url($url) 37% 100%/cover no-repeat;
+    url($url) 37% 100% / cover no-repeat;
 }
 
-@mixin square-btn($background-color:#ffffff,$font-color:#000000){
-  display: block;
-  margin: 1rem;
+@mixin square-btn($background-color: #ffffff, $font-color: #000000) {
+  border:none;
   text-decoration: none;
   font-weight: 700;
   background-color: $background-color;
   color: $font-color;
   text-transform: uppercase;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   max-width: 150px;
-
 }
 
-@mixin round-btn($background-color:#ffffff,$font-color:#000000, $icon-url:'') {
+@mixin round-btn($background-color: #ffffff, $font-color: #000000, $icon-url: "") {
   font-weight: 700;
   display: inline-block;
   border-radius: 10px;
   text-decoration: none;
   background-color: $background-color;
   color: $font-color;
-  text-align:center;
+  text-align: center;
   padding: 1.5rem 2rem;
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
-    background: url(#{$icon-url})  no-repeat center / contain;
+    background: url(#{$icon-url}) no-repeat center / contain;
     width: 16px;
     height: 16px;
     margin-right: 0.3em;
@@ -45,9 +43,134 @@
   }
 }
 @mixin admin-card {
+  line-height: 1.6;
+
   background-color: $white;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0  5px 4px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
+}
+
+@mixin simple-card {
+  @include admin-card;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    display: block;
+    color: $black;
+  }
+  .right-info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    @include status;
+  }
+  .status {
+    margin: 0 auto auto auto;
+  }
+}
+@mixin details-card {
+  @include admin-card;
+  @include status;
+  @include action-btn();
+
+  text-align: center;
+  padding: 2rem;
+
+  > fieldset {
+    padding: 4rem 0;
+  }
+  > section {
+    padding: 2rem;
+  }
+  a {
+    display: block;
+    color: $black;
+  }
+
+  .table-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid $light-grey;
+  }
+  .status {
+    margin: 0 auto;
+  }
+  @media screen and (width > 470px) {
+    .user-info.flex {
+      display: flex;
+      justify-content: space-between;
+    }
+    .right {
+      box-sizing: border-box;
+      text-align: end;
+    }
+  }
+
+  @media screen and (width > 410px) {
+    .flex.top {
+      display: flex;
+      justify-content: space-between;
+    }
+    .status {
+      margin: 0;
+    }
+  }
+  @media screen and (width > 430px) {
+    .actions-btn {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2rem;
+    }
+  }
+}
+
+@mixin status {
+  .status {
+    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    max-width: 100px;
+  }
+  .green {
+    background-color: #77c17b;
+    color: #2d6f31;
+  }
+  .orange {
+    background-color: #ffc877;
+    color: #805a22;
+  }
+  .grey {
+    background-color: #bebebe;
+    color: #605f5f;
+  }
+}
+
+@mixin action-btn {
+  button {
+    display: block;
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+  }
+  .edit,
+  .confirm {
+    text-align: center;
+    background-color: #1b4fbe;
+    color: $white;
+  }
+  .delete {
+    text-align: center;
+    background-color: #d11e1e;
+    color: $white;
+  }
 }

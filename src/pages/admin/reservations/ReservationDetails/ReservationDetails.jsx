@@ -1,57 +1,88 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { ReservationContext } from "../../../../context/ReservationsContext";
+import EditReservationForm from "./element/EditReservationForm/EditReservationForm";
 
 const ReservationDetails = () => {
-    const { id } = useParams();
-    const { getReservationById, loading } = useContext(ReservationContext);
-    const [reservation, setReservation] = useState(null);
+  const { id } = useParams();
+  const { getReservationById, loading } = useContext(ReservationContext);
+  const [reservation, setReservation] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
 
-    const fetchReservation = async () => {
-        const data = await getReservationById(id);
-        setReservation(data);
-    };
+  const fetchReservation = async () => {
+    const data = await getReservationById(id);
+    setReservation(data);
+  };
 
-    useEffect(() => {
-        fetchReservation();
-    }, []);
-    
-    return (
-        <main id="reservation-details" className="admin-main">
-        {loading && (
-            <article className="loading-container">
-            <div className="loader"></div>
-            </article>
-        )}
-        {!loading && reservation && (
-            <section className="details-card">
-  <div className="top">
-    <p className="date">
-      {new Date(reservation.TimeSlot.date).toLocaleDateString("fr-FR")}
-    </p>
-    <p className="time">{reservation.TimeSlot.time.slice(0, 5)}</p>
-  </div>
+  useEffect(() => {
+    fetchReservation();
+  }, []);
 
-  <div className="user-info">
-    <p><strong>{reservation.User.firstName} {reservation.User.lastName}</strong></p>
-    <a href={`mailto:${reservation.User.email}`}>{reservation.User.email}</a>
-    <a href={`tel:${reservation.User.phone}`}>{reservation.User.phone}</a>
-  </div>
+  return (
+    <main id="reservation-details" className="admin-main">
+      {loading && (
+        <article className="loading-container">
+          <div className="loader"></div>
+        </article>
+      )}
+      {!loading && reservation && !isEditing && (
+        <section className="details-card">
+          <section className="flex border-bottom top">
+              <p className="date">
+                {new Date(reservation.date).toLocaleString("fr-FR", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                    })}
+                </p>
+            <p className="time">{reservation.TimeSlot.startTime.slice(0, 5)}
+            </p>
+            {reservation.status === "reserved" && (
+              <p className="status green">réservé</p>
+            )}
+            {reservation.status === "awaiting" && (
+              <p className="status orange">en attente</p>
+            )}
+            {reservation.status === "confirmed" && (
+              <p className="status grey">confirmé</p>
+            )}
+          </section>
 
-  <div className="table-info">
-    <p><strong>{reservation.Table.location}</strong></p>
-    <p>Table {reservation.Table.numberTable}</p>
-    <p>{reservation.numberOfPeople} couverts</p>
-  </div>
+          <section className="flex border-bottom user-info">
+            <p>
+              <strong>
+                {reservation.User.firstName} {reservation.User.lastName}
+              </strong>
+            </p>
+            <div className="right">
+            <a href={`mailto:${reservation.User.email}`}>
+              {reservation.User.email}
+            </a>
+            <a href={`tel:${reservation.User.phone}`}>
+              {reservation.User.phone}
+            </a>
+            </div>
+          </section>
 
-  <p className={`status ${reservation.status}`}>
-    {reservation.status === "reserved" && "Réservé"}
-    {reservation.status === "awaiting" && "En attente"}
-    {reservation.status === "confirmed" && "Confirmé"}
-  </p>
-</section>
-        )}
-        </main>
-    );
+          <section className="flex table-info">
+            <div className="left">
+            <p>
+              <strong>{reservation.Table.location}</strong>
+            </p>
+            <p>Table {reservation.Table.numberTable}</p>
+            </div>
+            <p>{reservation.numberOfPeople} pers.</p>
+          </section>
+          
+          <div className="actions-btn">
+            <button className="edit" onClick={()=>setIsEditing(!isEditing)}>Modifier</button>
+            <button className="delete">Supprimer</button>
+          </div>
+
+        </section>
+      )}
+      {!loading && reservation && isEditing && <EditReservationForm reservation={reservation} onCancel={() => setIsEditing(false)}/>}
+    </main>
+  );
 };
 export default ReservationDetails;
