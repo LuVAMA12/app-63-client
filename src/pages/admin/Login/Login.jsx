@@ -3,11 +3,12 @@ import FormField from "../../../components/FormField/FormField.jsx";
 import { AuthContext } from "../../../context/AuthContext.jsx";
 
 const Login = () => {
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin, error } = useContext(AuthContext);
   const [infoAdmin, setInfoAdmin] = useState({
     email: "",
     password: "",
   });
+
   return (
     <main id="login" className="admin-main">
       <img
@@ -40,8 +41,8 @@ const Login = () => {
             setInfoAdmin({ ...infoAdmin, password: e.target.value })
           }
         />
-
-          {console.log(infoAdmin)}
+        { error && <p className="error">
+          {error}</p>}
         <button className="button" type="submit">
           Se connecter
         </button>

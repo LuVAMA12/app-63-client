@@ -13,7 +13,7 @@
 }
 
 @mixin square-btn($background-color: #ffffff, $font-color: #000000) {
-  border:none;
+  border: none;
   text-decoration: none;
   font-weight: 700;
   background-color: $background-color;
@@ -49,7 +49,6 @@
   border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
 }
 
 @mixin simple-card {
@@ -165,12 +164,12 @@
   .edit,
   .confirm {
     text-align: center;
-    background-color: #1b4fbe;
+    background-color: $blue-btn;
     color: $white;
   }
   .delete {
     text-align: center;
-    background-color: #d11e1e;
+    background-color: $red-btn;
     color: $white;
   }
 }
