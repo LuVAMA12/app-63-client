@@ -1,11 +1,11 @@
-import OrderCard from "./element/OrderCard/OrderCard"
+import OrderList from "./element/OrderList/OrderList"
 
 const OrdersManager = () => {
     return(
         <main id='orders-manager' className="admin-main">
-            <h1>Réservations</h1>
+            <h1>Commandes</h1>
             <section className="orders-cards">
-                <OrderCard/> 
+                <OrderList/> 
             </section>
         </main>
     )

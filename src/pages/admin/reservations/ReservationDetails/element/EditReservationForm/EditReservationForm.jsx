@@ -1,14 +1,13 @@
 import { useState } from "react";
 import FormField from "../../../../../../components/FormField/FormField";
 
-const EditReservationForm = ({ reservation, onCancel }) => {
+const EditReservationForm = ({ data, onCancel }) => {
   const [formData, setFormData] = useState({
-    firstName: reservation?.User.firstName || "",
-    lastName: reservation?.User.lastName || "",
-    email: reservation?.User.email || "",
-    phone: reservation?.User.phone || "",
+    firstName: data?.User.firstName || "",
+    lastName: data?.User.lastName || "",
+    email: data?.User.email || "",
+    phone: data?.User.phone || "",
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({

@@ -1,8 +1,9 @@
-@use '../../../../assets/styles/abstracts' as *;
+@use "../../../../assets/styles/abstracts" as *;
 
 #order-details {
     background-color: $bg-orders;
-    .details-card{
-        @include admin-card;
+    .details-card {
+        @include details-card;
+
     }
 }

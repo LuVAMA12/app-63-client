@@ -43,6 +43,7 @@
   }
 }
 @mixin admin-card {
+  @include status;
   line-height: 1.6;
 
   background-color: $white;
@@ -53,12 +54,17 @@
 
 @mixin simple-card {
   @include admin-card;
-  display: flex;
-  justify-content: space-between;
 
   a {
     display: block;
     color: $black;
+  }
+  .top{
+    display: flex;
+    justify-content: space-between;
+    .status{
+      margin:0;
+    }
   }
   .right-info {
     display: flex;
@@ -68,17 +74,22 @@
     @include status;
   }
   .status {
-    margin: 0 auto auto auto;
+    margin: 0 0 auto 0;
   }
+  
 }
 @mixin details-card {
   @include admin-card;
-  @include status;
-  @include action-btn();
+  @include action-btn;
 
-  text-align: center;
-  padding: 2rem;
-
+  figure {
+    @include img-card(70px);
+  }
+  & {
+    text-align: center;
+    padding: 2rem;
+  }
+  
   > fieldset {
     padding: 4rem 0;
   }
@@ -89,10 +100,18 @@
     display: block;
     color: $black;
   }
-
-  .table-info {
+  .user-info {
+    justify-content: center;
     display: flex;
-    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    @media screen and (width > 500px) {
+      justify-content: space-between;
+      .form-field {
+        margin: 0;
+        width: calc(50% - 2rem);
+      }
+    }
   }
 
   .border-bottom {
@@ -132,10 +151,11 @@
 
 @mixin status {
   .status {
+    text-align: center;
     font-size: 1.2rem;
     border-radius: 5px;
     padding: 0.2rem 0.5rem;
-    max-width: 100px;
+    max-width: 80px;
   }
   .green {
     background-color: #77c17b;
@@ -171,5 +191,30 @@
     text-align: center;
     background-color: $red-btn;
     color: $white;
+  }
+}
+@mixin img-card($width: 80px) {
+  margin: 0;
+  padding: 1rem 0;
+  figcaption {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  img {
+    
+    width: $width;
+    height: $width;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  @media screen and (width > 410px) {
+    display: flex;
+    align-items: center;
+    img{
+      margin-right: 2rem;
+    }
   }
 }

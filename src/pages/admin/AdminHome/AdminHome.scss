@@ -11,18 +11,18 @@
         font-size: 1.8rem;
     }
     .orders {
-        @include round-btn($order-color,$black,'icons/dish-svgrepo-com.svg')
+        @include round-btn($order-color,$black,'/icons/dish-svgrepo-com.svg')
     }
     .reservations {
-        @include round-btn($reservations-color,$black,'icons/calendar-svgrepo-com.svg');
+        @include round-btn($reservations-color,$black,'/icons/calendar-svgrepo-com.svg');
     }
     .menu {
-        @include round-btn($menu-color,$black,'icons/restaurant-menu-svgrepo-com.svg')
+        @include round-btn($menu-color,$black,'/icons/restaurant-menu-svgrepo-com.svg')
     }
     .tables {
-        @include round-btn($tables-color,$black,'icons/table-svgrepo-com.svg')
+        @include round-btn($tables-color,$black,'/icons/table-svgrepo-com.svg')
     }
     .time-slots {
-        @include round-btn($time-slot-color,$black,'icons/time-svgrepo-com.svg')
+        @include round-btn($time-slot-color,$black,'/icons/time-svgrepo-com.svg')
     }
 }

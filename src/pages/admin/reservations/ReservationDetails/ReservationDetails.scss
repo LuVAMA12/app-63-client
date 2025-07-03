@@ -5,16 +5,8 @@
     .details-card {
         @include details-card;
     }
-    .edit-form .user-info {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        @media screen and (width > 430px) {
-            justify-content: space-between;
-            .form-field {
-                margin: 0;
-                width: calc(50% - 2rem)
-            }
-        }
-    }
+     .table-info {
+    display: flex;
+    justify-content: space-between;
+  }
 }

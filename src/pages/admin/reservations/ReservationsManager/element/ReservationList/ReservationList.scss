@@ -1,0 +1,7 @@
+@use "../../../../../../assets/styles/abstracts/" as *;
+
+#reservation-card {
+    @include simple-card;
+    display: flex;
+    justify-content: space-between;
+}

@@ -40,7 +40,7 @@ export const OrderController = () => {
     const getOrderById = async (id) => {
         try {
         const response = await axios.get(
-            `https://app-63-server.onrender.com/api/order/${id}`,
+            `${API_URL}api/order/${id}`,
             {
             headers: {
                 Authorization: `Bearer ${tokenStorage}`,

@@ -1,4 +1,4 @@
-import ReservationCard from "./element/ReservationCard/ReservationCard"
+import ReservationList from "./element/ReservationList/ReservationList"
 
 const ReservationsManager = () => {
     return(
@@ -6,7 +6,7 @@ const ReservationsManager = () => {
             <h1>Réservations</h1>
             {/* <Link path='/'></Link> */}
             <section className="reservations-cards">
-           <ReservationCard/> 
+           <ReservationList/> 
             </section>
         </main>
     )
