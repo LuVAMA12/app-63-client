@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router';
 import ProtectedRoute from '../utils/ProtectedRoute.jsx';
 import App from './App.jsx';
 import { OrderController } from './context/OrderContext.jsx';
-import { ReservationController } from './context/ReservationsContext.jsx';
+import { ReservationController } from './context/ReservationContext.jsx';
 import AdminLayout from './layouts/AdminLayout.jsx';
 import PublicLayout from './layouts/PublicLayout.jsx';
 import AdminHome from './pages/admin/AdminHome/AdminHome.jsx';

@@ -35,7 +35,7 @@ export const ReservationController = () => {
 
   const getReservationById = async (id) => {
     try {
-      const response = await axios.get(`${API_URL}api/reservation/${id}`, {
+      const response = await axios.get(`${API_URL}api/reservations/${id}`, {
         headers: {
           Authorization: `Bearer ${tokenStorage}`,
         },

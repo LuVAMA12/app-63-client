@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import DetailsLayout from "../../../../components/admin/DetailsLayout";
-import { ReservationContext } from "../../../../context/ReservationsContext";
+import { ReservationContext } from "../../../../context/ReservationContext";
 import EditReservationForm from "./element/EditReservationForm/EditReservationForm";
 const ReservationDetails = () => {
   const { id } = useParams();

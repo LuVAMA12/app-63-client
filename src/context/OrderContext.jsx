@@ -40,7 +40,7 @@ export const OrderController = () => {
     const getOrderById = async (id) => {
         try {
         const response = await axios.get(
-            `${API_URL}api/order/${id}`,
+            `${API_URL}api/orders/${id}`,
             {
             headers: {
                 Authorization: `Bearer ${tokenStorage}`,

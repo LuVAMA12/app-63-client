@@ -9,4 +9,17 @@
     display: flex;
     justify-content: space-between;
   }
+
+  form.edit-form .table-info {
+  display: block; 
+  .form-field label{
+      display: block;
+      padding: 1rem;
+  }
+  @media screen and (width > 410px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
 }

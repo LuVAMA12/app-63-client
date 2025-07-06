@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import ListWithLoading from "../../../../../../components/admin/ListWithLoading.jsx";
-import { ReservationContext } from "../../../../../../context/ReservationsContext.jsx";
+import { ReservationContext } from "../../../../../../context/ReservationContext.jsx";
 
 
 const ReservationList = () => {

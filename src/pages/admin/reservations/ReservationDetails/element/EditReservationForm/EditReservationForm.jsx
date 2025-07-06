@@ -7,7 +7,10 @@ const EditReservationForm = ({ data, onCancel }) => {
     lastName: data?.User.lastName || "",
     email: data?.User.email || "",
     phone: data?.User.phone || "",
+    date: data?.date.split("T")[0]|| "",
+    time: data?.TimeSlot.startTime || "",
   });
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -17,37 +20,54 @@ const EditReservationForm = ({ data, onCancel }) => {
   };
 
   return (
-
-    <form action="" method="get"  className="details-card edit-form" >
+    <form action="" method="get" className="details-card edit-form">
       <h2>Modifier la réservation</h2>
       <fieldset className="border-bottom user-info">
-      <FormField
-        label="Prénom"
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleChange}
+        <FormField
+          label="Prénom"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
         />
-      <FormField
-        label="Nom"
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleChange}
+        <FormField
+          label="Nom"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
         />
-      <FormField
-        label="Email"
-        name="email"
-        type="email"
-        value={formData.email}
-        onChange={handleChange}
+        <FormField
+          label="Email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
         />
-      <FormField
-        label="Téléphone"
-        name="phone"
-        type="tel"
-        value={formData.phone}
-        onChange={handleChange}
+        <FormField
+          label="Téléphone"
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={handleChange}
         />
-        </fieldset>
+      </fieldset>
+      <fieldset className="flex border-bottom table-info">
+        <FormField
+         label="Date"
+          name="date"
+          type="date"
+          value={formData.date}
+          onChange={handleChange}
+        />
+        <FormField
+         label="Horaires"
+          name="time"
+          type="time"
+          date={formData.date}
+          value={formData.time}
+          onChange={handleChange}
+        />
+        
+      </fieldset>
       <div className="actions-btn">
         <button className="confirm">Valider</button>
         <button className="delete" onClick={onCancel}>

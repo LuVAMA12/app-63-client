@@ -21,7 +21,7 @@ const Login = () => {
         action="#"
         method="POST"
         onSubmit={(e) => handleLogin(e, infoAdmin)}
-        className="login-form"
+        className="login-form user-info"
       >
         <FormField
           label="Email"

@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import DetailsLayout from "../../../../components/admin/DetailsLayout";
 import { OrderContext } from "../../../../context/OrderContext.jsx";
-import EditReservationForm from "../../reservations/ReservationDetails/element/EditReservationForm/EditReservationForm.jsx";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -27,7 +26,7 @@ const OrderDetails = () => {
       isEditing={isEditing}
       onToggleEdit={() => setIsEditing(!isEditing)}
       onDelete={() => console.log("Supprimer commande")}
-      FormComponent={EditReservationForm}
+      // FormComponent={EditReservationForm}
       data={order}
       mainId="order-details"
     >
