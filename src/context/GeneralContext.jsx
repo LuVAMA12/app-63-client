@@ -122,7 +122,8 @@ export const GeneralController = ({ children }) => {
           },
         }
       );
-      if (response.status === 200) {
+      if (response.status === 201) {
+        response.message='Votre réservation a été ajouté'
         return response.data;
       }
     } catch (error) {
