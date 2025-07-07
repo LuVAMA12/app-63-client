@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import DetailsLayout from "../../../../components/admin/DetailsLayout";
 import { ReservationContext } from "../../../../context/ReservationContext";
 import EditReservationForm from "./element/EditReservationForm/EditReservationForm";
 const ReservationDetails = () => {
   const { id } = useParams();
-  const { getReservationById, loading } = useContext(ReservationContext);
+  const navigate = useNavigate();
+  const { getReservationById, loading, deleteReservationByID } = useContext(ReservationContext);
   const [reservation, setReservation] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -13,17 +14,26 @@ const ReservationDetails = () => {
     const data = await getReservationById(id);
     setReservation(data);
   };
-
+const deleteReservation = async () => {
+  const deletedReservation = await deleteReservationByID(id);
+}
   useEffect(() => {
     fetchReservation();
-  }, []);
+  }, [isEditing]);
 
+
+const handleDelete= () => {
+deleteReservation()
+alert('Reservation supprimé')
+navigate('/admin/reservations')
+}
   return (
     <DetailsLayout
       loading={loading}
       isEditing={isEditing}
+      setIsEditing={setIsEditing}
       onToggleEdit={() => setIsEditing(!isEditing)}
-      onDelete={() => console.log("Supprimer réservation")}
+      onDelete={handleDelete}
       FormComponent={EditReservationForm}
       data={reservation} mainId='reservation-details'
     > {reservation && (
@@ -73,6 +83,7 @@ const ReservationDetails = () => {
           </div>
           <p>{reservation.numberOfPeople} pers.</p>
         </section>
+      
       </>
     )}
     </DetailsLayout>

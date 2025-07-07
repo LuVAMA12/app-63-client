@@ -10,7 +10,7 @@ const Home = ()=> {
       </div>
       <div className="buttons">
         <Link to='#' className="button"> Je commande</Link>
-        <Link to='#' className="grey-button"> Je réserve</Link>
+        <Link to='/reservations' className="grey-button"> Je réserve</Link>
       </div>
     </section>
     <section  className="story-section">

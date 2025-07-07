@@ -12,6 +12,7 @@ import OrdersManager from './pages/admin/orders/OrdersManager/OrdersManager.jsx'
 import ReservationDetails from './pages/admin/reservations/ReservationDetails/ReservationDetails.jsx';
 import ReservationsManager from './pages/admin/reservations/ReservationsManager/ReservationsManager.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Reservation from './pages/public/Reservation/Reservation.jsx';
 
 const MyRouter = () => {
     return (
@@ -19,6 +20,7 @@ const MyRouter = () => {
         <Routes>
             <Route element={<PublicLayout/>}>
                 <Route path='/' element={<App/>}/>
+                <Route path='/reservations' element={<Reservation/>}/>
             </Route>
                 <Route
                 path="/admin"

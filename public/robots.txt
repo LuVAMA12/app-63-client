@@ -1,0 +1,18 @@
+# Autoriser tous les bots à explorer le site
+User-agent: *
+
+# Ne pas explorer les pages d'administration
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /admin/login
+
+# Ne pas indexer les API (inutile pour les moteurs)
+Disallow: /api/
+
+# Ne pas indexer les fichiers statiques sensibles
+Disallow: /config/
+Disallow: /private/
+
+# Autoriser tout le reste
+Allow: /
+

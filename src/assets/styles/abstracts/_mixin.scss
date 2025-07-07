@@ -80,7 +80,9 @@
 }
 @mixin details-card {
   @include admin-card;
-  @include action-btn;
+  .actions-btn{
+    @include action-btn;
+  }
 
   figure {
     @include img-card(70px);
@@ -91,7 +93,8 @@
   }
   
   > fieldset {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
+    
   }
   > section {
     padding: 2rem;

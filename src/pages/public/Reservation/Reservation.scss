@@ -1,0 +1,23 @@
+@use "../../../assets/styles/abstracts/" as *;
+
+#reservation {
+    padding: 2rem;
+    .user-info .form-field {
+        flex-direction: column-reverse;
+    }
+    .form-field {
+        padding: 2rem 0;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        .input{
+            border: 1.5px solid $dark-grey;
+        }
+    }
+    .actions-btn {
+        @include action-btn;
+        .confirm {
+            background-color: $dark-grey;
+        }
+    }
+}

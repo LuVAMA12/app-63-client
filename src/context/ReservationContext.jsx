@@ -53,16 +53,61 @@ export const ReservationController = () => {
       setLoading(false);
     }
   };
-
+ const updateReservationById = async(id, data, setLoading) => {
+    const {firstName, lastName, email, phone, date , numberOfPeople, capacity, location} = data
+    
+    try {
+      const response = await axios.patch(`${API_URL}api/reservations/${id}`, {firstName, lastName, email, phone, date , timeSlotId: data.time.id, numberOfPeople, capacity, location}, {
+        headers: {
+          Authorization: `Bearer ${tokenStorage}`,
+        },
+      });
+      console.log(response)
+      if (response.status === 202) {
+        response.data.message = 'Votre réservation a été mise à jour'
+        console
+        return response.data;
+      }
+    } catch (error) {
+     if (error.response.status === 403) {
+        localStorage.removeItem("token");
+        navigate("/admin/login");
+      }
+      console.log(error);
+    } finally{
+        setLoading(false)
+    }
+  };
+  
+  const deleteReservationByID = async (id) =>{
+    try {
+      const response = await axios.delete(`${API_URL}api/reservations/${id}`, {
+        headers: {
+          Authorization: `Bearer ${tokenStorage}`,
+        },
+      });
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (error) {
+      if (error.response.status === 403){
+        localStorage.removeItem('token')
+        navigate('/admin/login')
+      }
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   useEffect(() => {
     if (tokenStorage) {
       getReservations();
     }
   }, []);
-
   return (
     <ReservationContext.Provider
-      value={{ reservations, loading, getReservationById }}
+      value={{ reservations, loading, getReservationById, updateReservationById, deleteReservationByID }}
     >
       <Outlet />
     </ReservationContext.Provider>

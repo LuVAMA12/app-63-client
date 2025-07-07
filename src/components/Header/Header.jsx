@@ -10,6 +10,7 @@ const Header = () => {
       {isOpenMenu &&
         <nav className="navbar">
             <Link to="/">Accueil</Link>
+            <Link to="/reservations">Reservation</Link>
         </nav>
         }
     </header>

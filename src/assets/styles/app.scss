@@ -6,10 +6,12 @@
 @use '../../components/Footer/Footer.scss';
 @use '../../components/FormField/FormField.scss';
 
+@use '../../pages/public/Home/Home.scss';
+@use '../../pages/public/Reservation/Reservation.scss';
+
 @use '../../pages/admin/reservations/ReservationsManager/element/ReservationList/ReservationList.scss';
 @use '../../pages/admin/orders/OrdersManager/element/OrderList/OrderList.scss';
 
-@use '../../pages/Home/Home.scss';
 @use '../../pages/admin/AdminHome/AdminHome.scss';
 @use '../../pages/admin/Login/Login.scss';
 
