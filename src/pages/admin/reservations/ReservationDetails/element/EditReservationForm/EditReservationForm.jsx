@@ -5,7 +5,8 @@ import { AuthContext } from "../../../../../../context/AuthContext";
 import { ReservationContext } from "../../../../../../context/ReservationContext";
 
 const EditReservationForm = ({ data, onCancel,setIsEditing }) => {
-  const {id} =useParams('id')
+  const {id} = useParams('id')
+    const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: data?.User.firstName || "",
     lastName: data?.User.lastName || "",
@@ -24,12 +25,11 @@ const EditReservationForm = ({ data, onCancel,setIsEditing }) => {
   const { updateReservationById } = useContext(ReservationContext);
 
   const updateReservation = async () => {
-    const updatedReservation = await updateReservationById(id,formData);
+    const updatedReservation = await updateReservationById(id,formData, setLoading);
     alert(updatedReservation.message)
     setIsEditing(false)
   };
 const handleChange = (e) => {
-  console.log('e')
   const { name, value } = e.target;
   setFormData((prev) => ({
     ...prev,

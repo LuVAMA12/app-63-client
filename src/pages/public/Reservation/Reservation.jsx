@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router";
 import FormField from "../../../components/FormField/FormField";
 import { AuthContext } from "../../../context/AuthContext";
 import { GeneralContext } from "../../../context/GeneralContext";
 
 const Reservation = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,14 +33,16 @@ const Reservation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      if (tokenStorage){
-    addReservation()
-  }
+    if (tokenStorage) {
+      addReservation();
+    }
   };
 
-    const addReservation = async () => {
-    const newReservation = await createReservation(formData);
-    alert(newReservation.message)
+  const addReservation = async () => {
+    const newReservation = await createReservation(formData, setLoading);
+    alert(newReservation.message);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/");
   };
 
   return (

@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router';
-import ProtectedRoute from '../utils/ProtectedRoute.jsx';
 import App from './App.jsx';
 import { OrderController } from './context/OrderContext.jsx';
 import { ReservationController } from './context/ReservationContext.jsx';
@@ -13,6 +12,8 @@ import ReservationDetails from './pages/admin/reservations/ReservationDetails/Re
 import ReservationsManager from './pages/admin/reservations/ReservationsManager/ReservationsManager.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Reservation from './pages/public/Reservation/Reservation.jsx';
+import ProtectedRoute from './utils/ProtectedRoute.jsx';
+
 
 const MyRouter = () => {
     return (
