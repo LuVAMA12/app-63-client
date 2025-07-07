@@ -1,0 +1,14 @@
+@use '../../../../assets/styles/abstracts' as *;
+
+#orders-manager {
+    background-color: $bg-orders;
+    .orders-cards{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:2rem;
+        .loader{
+            align-items: center;
+        }
+    }
+}

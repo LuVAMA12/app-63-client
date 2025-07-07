@@ -1,15 +1,223 @@
+@use "./variables" as *;
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin dark-overlay($color: rgba(0, 0, 0, 0.5)) {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $color;
+@mixin bg-image($url) {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url($url) 37% 100% / cover no-repeat;
+}
+
+@mixin square-btn($background-color: #ffffff, $font-color: #000000) {
+  border: none;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: $background-color;
+  color: $font-color;
+  text-transform: uppercase;
+  padding: 1.5rem 2rem;
+  max-width: 150px;
+}
+
+@mixin round-btn($background-color: #ffffff, $font-color: #000000, $icon-url: "") {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: $background-color;
+  color: $font-color;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  &::before {
+    content: "";
+    display: inline-block;
+    background: url(#{$icon-url}) no-repeat center / contain;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.3em;
+    vertical-align: -6%;
+  }
+}
+@mixin admin-card {
+  @include status;
+  line-height: 1.6;
+
+  background-color: $white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+@mixin simple-card {
+  @include admin-card;
+
+  a {
+    display: block;
+    color: $black;
+  }
+  .top{
+    display: flex;
+    justify-content: space-between;
+    .status{
+      margin:0;
+    }
+  }
+  .right-info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    @include status;
+  }
+  .status {
+    margin: 0 0 auto 0;
+  }
+  
+}
+@mixin details-card {
+  @include admin-card;
+  .actions-btn{
+    @include action-btn;
+  }
+
+  figure {
+    @include img-card(70px);
+  }
+  & {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  > fieldset {
+    padding: 3.5rem 0;
+    
+  }
+  > section {
+    padding: 2rem;
+  }
+  a {
+    display: block;
+    color: $black;
+  }
+  .user-info {
+    justify-content: center;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    @media screen and (width > 500px) {
+      justify-content: space-between;
+      .form-field {
+        margin: 0;
+        width: calc(50% - 1rem);
+      }
+    }
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid $light-grey;
+  }
+  .status {
+    margin: 0 auto;
+  }
+  @media screen and (width > 470px) {
+    .user-info.flex {
+      display: flex;
+      justify-content: space-between;
+    }
+    .right {
+      box-sizing: border-box;
+      text-align: end;
+    }
+  }
+
+  @media screen and (width > 410px) {
+    .flex.top {
+      display: flex;
+      justify-content: space-between;
+    }
+    .status {
+      margin: 0;
+    }
+  }
+  @media screen and (width > 430px) {
+    .actions-btn {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2rem;
+    }
+  }
+}
+
+@mixin status {
+  .status {
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    max-width: 80px;
+  }
+  .green {
+    background-color: #77c17b;
+    color: #2d6f31;
+  }
+  .orange {
+    background-color: #ffc877;
+    color: #805a22;
+  }
+  .grey {
+    background-color: #bebebe;
+    color: #605f5f;
+  }
+}
+
+@mixin action-btn {
+  button {
+    display: block;
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+  }
+  .edit,
+  .confirm {
+    text-align: center;
+    background-color: $blue-btn;
+    color: $white;
+  }
+  .delete {
+    text-align: center;
+    background-color: $red-btn;
+    color: $white;
+  }
+}
+@mixin img-card($width: 80px) {
+  margin: 0;
+  padding: 1rem 0;
+  figcaption {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  img {
+    
+    width: $width;
+    height: $width;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  @media screen and (width > 410px) {
+    display: flex;
+    align-items: center;
+    img{
+      margin-right: 2rem;
+    }
+  }
 }

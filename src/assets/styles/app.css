@@ -99,22 +99,58 @@
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.ttf") format("truetype");
-  font-weight: 900;
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2"), url("../../assets/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.ttf") format("truetype");
-  font-weight: 900;
+  font-weight: 800;
   font-style: italic;
   font-display: swap;
 }
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#root main {
+  flex: 1;
+}
+
 html {
   font-size: 62.5%;
 }
-html body {
+
+body {
   font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  box-sizing: border-box;
+}
+body h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+body h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+body h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+body .button {
+  display: block;
+  margin: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #000000;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  max-width: 150px;
 }
 
 header {
@@ -149,20 +185,116 @@ header .navbar > a {
   padding: 2rem 0;
 }
 
-#home .background-image {
-  background: url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
-  height: 550px;
+#footer {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}
+
+#home {
+  color: #FFFFFF;
+  text-align: center;
+}
+#home .welcome-section {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #000000 89%, #000000 100%), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/DSCF8786_Istg_-scaled.jpg") 37% 100%/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  height: 500px;
   width: 100%;
   position: relative;
 }
-#home .background-image::after {
-  content: "";
+#home .welcome-section .welcome-text {
+  margin: 4rem 0;
+}
+#home .welcome-section .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#home .welcome-section .buttons .grey-button {
+  display: block;
+  margin: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #2d2a27;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  max-width: 150px;
+}
+#home .story-section {
+  background-color: #000000;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+#home .story-section h2 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#home .story-section p {
+  text-align: justify;
+}
+
+#admin-home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+#admin-home .orders {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #9FDFEF;
+  color: #000000;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+#admin-home .reservations {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #DB90E0;
+  color: #000000;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+#admin-home .menu {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #F7A5A5;
+  color: #000000;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+#admin-home .tables {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #B1E3AC;
+  color: #000000;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+#admin-home .time-slots {
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #FAD6AE;
+  color: #000000;
+  text-align: center;
+  padding: 1rem 2rem;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,6 +1,25 @@
 @charset 'utf-8';
 @use './abstracts/' as *;
 @use 'base/global';
+
 @use '../../components/Header/Header.scss';
-@use '../../pages/Home/Home.scss';
+@use '../../components/Footer/Footer.scss';
+@use '../../components/FormField/FormField.scss';
+
+@use '../../pages/public/Home/Home.scss';
+@use '../../pages/public/Reservation/Reservation.scss';
+
+@use '../../pages/admin/reservations/ReservationsManager/element/ReservationList/ReservationList.scss';
+@use '../../pages/admin/orders/OrdersManager/element/OrderList/OrderList.scss';
+
+@use '../../pages/admin/AdminHome/AdminHome.scss';
+@use '../../pages/admin/Login/Login.scss';
+
+@use '../../pages/admin/reservations/ReservationsManager/ReservationsManager.scss';
+@use '../../pages/admin/reservations/ReservationDetails/ReservationDetails.scss';
+
+@use '../../pages/admin/orders/OrdersManager/OrdersManager.scss';
+@use '../../pages/admin/orders/OrderDetails/OrderDetails.scss';
+
+
 

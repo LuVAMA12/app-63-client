@@ -1,0 +1,26 @@
+@use "../../../../assets/styles/abstracts" as *;
+
+#reservation-details {
+  background-color: $bg-reservations;
+  .details-card {
+    @include details-card;
+  }
+
+  form.edit-form .table-info{
+    .form-field .user-label {
+      display: block;
+      padding: 1rem;
+    }
+    .date-info {
+      display: block;
+      padding-bottom: 2rem;
+      @media screen and (width > 410px) {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+    }
+  }
+
+
+}

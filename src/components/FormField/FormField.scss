@@ -1,0 +1,75 @@
+@use "../../assets/styles/abstracts/" as *;
+
+.form-field {
+    width: 100%;
+    line-height: normal;
+    text-align: start;
+    border: none;
+    .input {
+        box-sizing: border-box;
+        width: 100%;
+        border: solid 1.5px $black;
+        border-radius: 1rem;
+        background: none;
+        padding: 1rem;
+        color: $black;
+        transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:focus,
+        &:not(:placeholder-shown) {
+            outline: none;
+            border: 1.5px solid #1a73e8;
+        }
+    }
+}
+
+form.edit-form .user-info, 
+form.login-form.user-info {
+    .form-field {
+        position: relative;
+        .input {
+            &:focus,
+            &:not(:placeholder-shown) {
+                outline: none;
+                border: 1.5px solid #1a73e8;
+
+                + .user-label {
+                    border-radius: 5px;
+                    transform: translateY(-50%) scale(0.9);
+                    color: #2196f3;
+                    padding: 0 0.5rem;
+                    background-color: $white;
+                }
+            }
+        }
+
+        .user-label {
+            position: absolute;
+            left: 10px;
+            background-color: $white;
+            color: $dark-grey;
+            pointer-events: none;
+            transform: translateY(1rem);
+            transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+}
+
+.table-info {
+    .capacity-group {
+        padding: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap:1rem;
+        .capacity {
+            padding: 0.65rem 1.15rem;
+            border:none;
+            background-color: $white;
+            border: 1.5px solid $black;
+            border-radius: 5px;
+            &.current-value{
+                background-color: #e1eeff;
+                border: 1.5px solid #1a73e8;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@use "../../../../../../assets/styles/abstracts/" as *;
+
+#order-card {
+    @include simple-card;
+    flex-direction: column;
+    article{
+        padding:0.5rem 0 ;
+    }
+    .created-at{
+        text-align: end;
+    }
+}

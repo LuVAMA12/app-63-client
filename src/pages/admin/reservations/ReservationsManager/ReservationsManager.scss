@@ -1,0 +1,14 @@
+@use '../../../../assets/styles/abstracts' as *;
+
+#reservations-manager {
+    background-color: $bg-reservations;
+    .reservations-cards{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:2rem;
+        .loader{
+            align-items: center;
+        }
+    }
+}

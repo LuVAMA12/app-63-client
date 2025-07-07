@@ -1,5 +1,5 @@
 import './assets/styles/app.scss'
-import Home from './pages/Home/Home.jsx'
+import Home from './pages/public/Home/Home.jsx'
 
 function App() {
   
@@ -11,4 +11,4 @@ function App() {
   )
 }
 
-export default App
+export default App 
