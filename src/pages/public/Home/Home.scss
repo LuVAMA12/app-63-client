@@ -12,7 +12,6 @@
         flex-direction: column;
         align-items: center;
         font-size: 2rem;
-        // height: 500px;
         width: 100%;
         position: relative;
         .welcome-text {
@@ -29,14 +28,18 @@
         }
     }
     .story-section {
+        min-height: 100vh;
         background-color: $black;
         padding: 2rem 1.5rem 2rem 1.5rem;
-        position: relative;
         h2 {
             padding: 5rem 0;
         }
         p {
             text-align: justify;
+            @media screen and (width > 500px) {
+                
+                padding :2rem
+            }
         }
     }
 
