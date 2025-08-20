@@ -2,13 +2,16 @@
 
 #reservations-manager {
     background-color: $bg-reservations;
+    .loader{
+        align-items: center;
+    }
     .reservations-cards{
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        gap:2rem;
-        .loader{
-            align-items: center;
+        gap: 2rem;
+        @media screen and (width > 800px) {
+            flex-direction: row;
+            flex-wrap: wrap;
         }
     }
 }

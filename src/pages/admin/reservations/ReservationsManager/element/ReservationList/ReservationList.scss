@@ -4,4 +4,7 @@
     @include simple-card;
     display: flex;
     justify-content: space-between;
+     @media screen and (width > 800px) {
+        width:46.8%;
+    }
 }

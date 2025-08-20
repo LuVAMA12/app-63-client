@@ -1,11 +1,23 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import ListWithLoading from "../../../../../../components/admin/ListWithLoading";
+import { AuthContext } from "../../../../../../context/AuthContext";
 import { OrderContext } from "../../../../../../context/OrderContext";
 
 const OrderList = () => {
   const navigate = useNavigate();
-  const { orders, loading } = useContext(OrderContext);
+  const { getOrders, loading } = useContext(OrderContext);
+  const [orders, setOrders] = useState(null);
+  const { tokenStorage } = useContext(AuthContext);
+  const fetchOrders = async () => {
+    const data = await getOrders();
+    setOrders(data);
+  };
+  useEffect(() => {
+    if (tokenStorage) {
+      fetchOrders();
+    }
+  }, []);
 
   return (
     <ListWithLoading
@@ -39,15 +51,18 @@ const OrderList = () => {
                 </p>
               ))}
           </article>
-          <article className="created-at">
+          <article className="order-info">
+            <p className="total">{order.total} €</p>
+            <article className="created-at">
               <p>{order.createdAt.slice(11, 16)}</p>
-            <p>
-              {new Date(order.createdAt).toLocaleString("fr-FR", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
-            </p>
+              <p>
+                {new Date(order.createdAt).toLocaleString("fr-FR", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
+              </p>
+            </article>
           </article>
         </article>
       )}
@@ -55,4 +70,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList
+export default OrderList;

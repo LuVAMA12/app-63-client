@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext.jsx";
 const API_URL = import.meta.env.VITE_API_URL;
@@ -10,7 +10,6 @@ export const ReservationController = () => {
   const navigate = useNavigate();
   const { tokenStorage } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
-  const [reservations, setReservations] = useState(null);
 
   const getReservations = async () => {
     try {
@@ -19,11 +18,9 @@ export const ReservationController = () => {
           Authorization: `Bearer ${tokenStorage}`,
         },
       });
-      console.log(response);
 
       if (response.status === 200) {
-        console.log(response);
-        setReservations(response.data);
+        return response.data;
       }
     } catch (error) {
       console.log(error);
@@ -58,6 +55,7 @@ export const ReservationController = () => {
       setLoading(false);
     }
   };
+
   const updateReservationById = async (id, data, setLoading) => {
     const {
       firstName,
@@ -128,16 +126,11 @@ export const ReservationController = () => {
     }
   };
 
-  useEffect(() => {
-    if (tokenStorage) {
-      getReservations();
-    }
-  }, []);
   return (
     <ReservationContext.Provider
       value={{
-        reservations,
         loading,
+        getReservations,
         getReservationById,
         updateReservationById,
         deleteReservationByID,

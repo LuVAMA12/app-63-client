@@ -1,12 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import ListWithLoading from "../../../../../../components/admin/ListWithLoading.jsx";
+import { AuthContext } from "../../../../../../context/AuthContext.jsx";
 import { ReservationContext } from "../../../../../../context/ReservationContext.jsx";
-
 
 const ReservationList = () => {
   const navigate = useNavigate();
-  const { reservations, loading } = useContext(ReservationContext);
+  const { getReservations, loading } = useContext(ReservationContext);
+  const [reservations, setReservations] = useState(null);
+  const { tokenStorage } = useContext(AuthContext);
+
+  const fetchReservations = async () => {
+    const data = await getReservations();
+    setReservations(data);
+  };
+  useEffect(() => {
+    if (tokenStorage) {
+      fetchReservations();
+    }
+  }, []);
 
   return (
     <ListWithLoading
@@ -62,4 +74,4 @@ const ReservationList = () => {
   );
 };
 
-export default ReservationList
+export default ReservationList;
